@@ -39,7 +39,7 @@ app.get('/api/shorturl/:id', redirectUrl);
 async function genShortUrl(req, res) {
   const url = req.body.url
   if (! isValidUrl(url)) {
-    res.json({"error": "Invalid URL"})
+    res.json({"error": "Invalid url"})
   }
   else {
     const hostname = new URL(url).hostname
@@ -52,7 +52,6 @@ async function genShortUrl(req, res) {
         "short_url": id
     })
     } catch (error) {
-      console.error(error)
       res.json({"error": "Invalid Hostname"})
     }
   }
