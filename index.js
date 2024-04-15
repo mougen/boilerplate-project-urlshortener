@@ -60,6 +60,8 @@ async function genShortUrl(req, res) {
 
 
 function isValidUrl(url) {
+  const httpRegex = /^(https?:\/\/)/;
+  if (!httpRegex.test(url)) return false
   try {
     new URL(url);
     return true;
